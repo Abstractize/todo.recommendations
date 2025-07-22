@@ -1,9 +1,11 @@
 from typing import List
 from uuid import UUID
+
 from ..models.task_suggestion import TaskSuggestion
 
 
-def get_task_recommendations(user_id: UUID) -> List[TaskSuggestion]:
+async def get_task_recommendations(user_id: UUID) -> List[TaskSuggestion]:
+    print(f"Fetching recommendations for user: {user_id}")
     return [
         TaskSuggestion(
             title="Learn Python",
