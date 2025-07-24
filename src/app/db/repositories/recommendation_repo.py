@@ -22,6 +22,15 @@ async def add_recommendation(db: AsyncSession, recommendation: Recommendation) -
     await db.commit()
 
 
+async def find_recommendation(
+    db: AsyncSession, recommendation_id: UUID
+) -> Recommendation | None:
+    result = await db.execute(
+        select(Recommendation).where(Recommendation.id == recommendation_id)
+    )
+    return result.scalar_one_or_none()
+
+
 async def get_active_recommendations(
     db: AsyncSession, user_id: UUID
 ) -> list[Recommendation]:
