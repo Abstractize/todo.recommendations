@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     jwt_key: str = ""
     jwt_algorithm: str = "HS256"
 
+    sql_connection_string: str = ""
+
     class Config:
         env_file = ".env"
 

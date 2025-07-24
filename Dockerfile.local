@@ -21,10 +21,12 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 RUN pip install "uvicorn[standard]" watchdog
 
 # Copy project
-COPY ./app ./app
+COPY ./src ./src
+COPY ./alembic.ini ./alembic.ini
+COPY ./alembic ./alembic
 
 # Expose port
 EXPOSE 8080
 
 # Run server with hot reload
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]

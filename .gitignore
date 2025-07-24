@@ -172,3 +172,5 @@ pyrightconfig.json
 
 ### ENV ###
 .env
+
+**.DS_Store

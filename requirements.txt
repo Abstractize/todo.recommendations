@@ -4,3 +4,8 @@ pydantic
 pydantic-settings
 python-dotenv
 python-jose[cryptography]
+sqlalchemy 
+psycopg[binary] 
+asyncpg
+alembic
+greenlet
