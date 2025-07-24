@@ -1,5 +1,4 @@
 from datetime import datetime, timezone
-from fastapi import HTTPException
 from uuid import UUID
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, update
