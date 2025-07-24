@@ -17,9 +17,11 @@ class Recommendation(Base):
     score = Column(Integer, default=0)
 
     created_at_utc = Column(
-        DateTime, default=lambda: datetime.now(timezone.utc), nullable=False
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        nullable=False,
     )
     created_by = Column(UUID(as_uuid=True), nullable=False)
 
     used = Column(Boolean, default=False, nullable=False)
-    used_at_utc = Column(DateTime, nullable=True)
+    used_at_utc = Column(DateTime(timezone=True), default=None, nullable=True)

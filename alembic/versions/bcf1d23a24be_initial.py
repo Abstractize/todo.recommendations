@@ -1,8 +1,8 @@
 """initial
 
-Revision ID: c20ae8dd56e1
-Revises: 75d3bb78c509
-Create Date: 2025-07-23 16:00:05.549679
+Revision ID: bcf1d23a24be
+Revises: 
+Create Date: 2025-07-23 17:08:28.078136
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'c20ae8dd56e1'
-down_revision: Union[str, Sequence[str], None] = '75d3bb78c509'
+revision: str = 'bcf1d23a24be'
+down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -27,10 +27,10 @@ def upgrade() -> None:
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
     sa.Column('score', sa.Integer(), nullable=True),
-    sa.Column('created_at_utc', sa.DateTime(), nullable=False),
+    sa.Column('created_at_utc', sa.DateTime(timezone=True), nullable=False),
     sa.Column('created_by', sa.UUID(), nullable=False),
     sa.Column('used', sa.Boolean(), nullable=False),
-    sa.Column('used_at_utc', sa.DateTime(), nullable=True),
+    sa.Column('used_at_utc', sa.DateTime(timezone=True), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_recommendations_user_id'), 'recommendations', ['user_id'], unique=False)
